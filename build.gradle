@@ -1,21 +1,57 @@
 plugins {
+    // used for start app with application mode
+//    id 'java'
     id 'java-library'
-    id 'jacoco'
+    id 'application'
+//    id 'org.springframework.boot' version '2.5.0'
+    id 'org.springframework.boot' version "2.4.8"
+
+
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+// develop for bom dependency and dependency management
+apply plugin: 'io.spring.dependency-management'
+
+
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    api 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+//    example for dependency of project sub-project
+//    implementation project(':ome-activity-planning-api')
+
+//    api platform("org.springframework.boot:spring-boot-starter-data-jpa:${property('spring-boot-version')}")
+//    api 'org.springframework.boot:spring-boot-starter-data-jpa:2.4.8'
+    api 'org.springframework.boot:spring-boot-starter-web:2.6.7'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
 
 test {
     useJUnitPlatform()
+}
+
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+// config for plugin: 'org.springframework.boot'
+bootRun{
+    workingDir("..")
+    environment = [
+            application_name: "hello-world",
+            jwt_enable: "false",
+            spec_sidecar_enable: "false",
+            feature_toggle_engine: "local"
+    ]
+}
+
+// config for plugin: 'application'
+application {
+    mainClass = 'org.example.HelloSundayStarter'
 }
