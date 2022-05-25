@@ -14,7 +14,11 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - cat /etc/hostname
       - cat /etc/hosts
       - ./gradlew clean build # 应用打包命令
-      - cp libs/hello-sunday-1.0-SNAPSHOT.jar /app/build/app.jar
+      - pwd
+      - ls -al .
+      - ls -al build
+      - ls -al build/lib
+      - cp build/libs/hello-sunday-1.0-SNAPSHOT.jar /app/build/app.jar
       - cp Dockerfile /app/build/Dockerfile
       - cp run.sh /app/build/run.sh
       - cd /app/build/
