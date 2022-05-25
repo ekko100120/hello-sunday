@@ -26,7 +26,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - cd /app/build/
       - chmod +x run.sh
       - ls -al
-      - sh ./run.sh
+#      - sh ./run.sh
 
   - name: publish
     image: plugins/docker
@@ -37,6 +37,12 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       tags:
         - 1.0.0
         - 1.0
+    commands:
+      - cd /app/build
+      - ls -al
+      - chmod +x run.sh
+      - ls -al
+      - sh ./run.sh
 
 #  - name: build-start
 #    image: appleboy/drone-ssh # SSH工具镜像
