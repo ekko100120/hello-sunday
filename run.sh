@@ -1,10 +1,10 @@
 #!/usr/bin bash
 # 定义应用组名
-group_name='kenny'
+group_name='mk100120'
 # 定义应用名称
 app_name='hello-sunday'
 # 定义应用版本
-app_version='1.0-SNAPSHOT'
+app_version='1.0.0'
 # 定义应用环境
 #profile_active='qa'
 echo '----copy jar----'

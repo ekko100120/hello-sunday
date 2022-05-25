@@ -28,6 +28,16 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - ls -al
       - sh ./run.sh
 
+    - name: publish
+      image: plugins/docker
+      settings:
+        username: mk100120
+        password: mk100120!
+        repo: mk100120/hello-sunday
+        tags:
+          - 1.0.0
+          - 1.0
+
 #  - name: build-start
 #    image: appleboy/drone-ssh # SSH工具镜像
 #    settings:
