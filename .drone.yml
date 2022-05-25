@@ -24,8 +24,8 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - cp Dockerfile /app/build/Dockerfile
       - cp run.sh /app/build/run.sh
       - cd /app/build/
-      - ls -al
       - chmod +x run.sh
+      - ls -al
       - ./run.sh
 
 #  - name: build-start
