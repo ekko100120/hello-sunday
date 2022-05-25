@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin bash
 # 定义应用组名
 group_name='kenny'
 # 定义应用名称
