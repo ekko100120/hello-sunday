@@ -29,6 +29,11 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
 
   - name: publish
     image: plugins/docker
+    environment:
+      USERNAME:
+        from_secret: username
+      PASSWORD:
+        from_secret: password
     volumes: # 将容器内目录挂载到宿主机，仓库需要开启Trusted设置
       - name: docker-socket
         path: /var/run/docker.sock
@@ -36,14 +41,18 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     settings:
       debug: true
-      username: mk100120
-      password: mk100120!
+      username: ${USERNAME}
+
+      password: ${PASSWORD}
       repo: mk100120/hello-sunday
       tags:
         - 1.0.0
         - 1.0
+      dry_run: true # boolean if the docker image should be pushed at the end 是否提交docker镜像
+      purge: false
     commands:
       - docker info
+      - docker login -u ${USERNAME} -p ${PASSWORD}
       - cd /app/build
       - ls -al
       - chmod +x run.sh
