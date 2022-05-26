@@ -34,6 +34,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - name: maven-build
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     settings:
+      debug: true
       username: mk100120
       password: mk100120!
       repo: mk100120/hello-sunday
