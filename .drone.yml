@@ -41,9 +41,13 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     settings:
       debug: true
-      username: ${USERNAME}
-
-      password: ${PASSWORD}
+      dockerfile: /app/build/Dockerfile
+      username:
+        from_secret: USERNAME
+      password:
+        from_secret: PASSWORD
+#      username: ${USERNAME}
+#      password: ${PASSWORD}
       repo: mk100120/hello-sunday
       tags:
         - 1.0.0
