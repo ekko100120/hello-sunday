@@ -52,7 +52,9 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       purge: false
     commands:
       - docker info
-      - docker login -u ${USERNAME} -p ${PASSWORD}
+      - echo ${USERNAME}
+      - echo ${PASSWORD}
+#      - docker login -u ${USERNAME} -p ${PASSWORD}
       - cd /app/build
       - ls -al
       - chmod +x run.sh
