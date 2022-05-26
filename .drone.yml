@@ -26,7 +26,6 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - cd /app/build/
       - chmod +x run.sh
       - ls -al
-#      - sh ./run.sh
 
   - name: publish
     image: plugins/docker
@@ -44,8 +43,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         - 1.0.0
         - 1.0
     commands:
-#      - docker info
-      - sleep 1000000000
+      - docker info
       - cd /app/build
       - ls -al
       - chmod +x run.sh
