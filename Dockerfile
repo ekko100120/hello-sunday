@@ -4,7 +4,7 @@ FROM gcr.io/distroless/java:11
 
 MAINTAINER kenny
 # 将当前目录下的jar包复制到docker容器的/目录下
-COPY build/libs/hello-sunday-1.0-SNAPSHOT.jar /app/build/app.jar
+#COPY build/libs/hello-sunday-1.0-SNAPSHOT.jar /app/build/app.jar
 
 # 声明服务运行在8088端口
 EXPOSE 8088
