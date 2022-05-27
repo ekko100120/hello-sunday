@@ -35,11 +35,12 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       PASSWORD:
         from_secret: dockerhub_token
     volumes: # 将容器内目录挂载到宿主机，仓库需要开启Trusted设置
-      - name: docker-socket
-        path: /var/run/docker.sock
+#      - name: docker-socket
+#        path: /var/run/docker.sock
       - name: maven-build
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     settings:
+      registry: https://index.docker.io/v1/
       dockerfile: /app/build/Dockerfile
       username:
         from_secret: username
