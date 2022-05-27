@@ -33,19 +33,18 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       USERNAME:
         from_secret: username
       PASSWORD:
-        from_secret: password
+        from_secret: dockerhub_token
     volumes: # 将容器内目录挂载到宿主机，仓库需要开启Trusted设置
       - name: docker-socket
         path: /var/run/docker.sock
       - name: maven-build
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     settings:
-      debug: true
       dockerfile: /app/build/Dockerfile
       username:
-        from_secret: USERNAME
+        from_secret: username
       password:
-        from_secret: PASSWORD
+        from_secret: dockerhub_token
 #      username: ${USERNAME}
 #      password: ${PASSWORD}
       repo: mk100120/hello-sunday
@@ -54,6 +53,8 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         - 1.0
       dry_run: true # boolean if the docker image should be pushed at the end 是否提交docker镜像
       purge: false
+      debug: true
+      launch_debug: true
 #    commands:
 #      - docker info
 #      - echo ${USERNAME}
