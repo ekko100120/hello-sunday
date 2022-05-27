@@ -54,16 +54,16 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         - 1.0
       dry_run: true # boolean if the docker image should be pushed at the end 是否提交docker镜像
       purge: false
-    commands:
-      - docker info
-      - echo ${USERNAME}
-      - echo ${PASSWORD}
-#      - docker login -u ${USERNAME} -p ${PASSWORD}
-      - cd /app/build
-      - ls -al
-      - chmod +x run.sh
-      - ls -al
-      - sh ./run.sh
+#    commands:
+#      - docker info
+#      - echo ${USERNAME}
+#      - echo ${PASSWORD}
+##      - docker login -u ${USERNAME} -p ${PASSWORD}
+#      - cd /app/build
+#      - ls -al
+#      - chmod +x run.sh
+#      - ls -al
+#      - sh ./run.sh
 
 #  - name: build-start
 #    image: appleboy/drone-ssh # SSH工具镜像

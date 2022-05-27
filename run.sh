@@ -18,7 +18,11 @@ echo '----rm image----'
 echo '----build image----'
 docker build -t ${group_name}/${app_name}:${app_version} .
 
+echo '----list image----'
 docker image ls |grep ${app_name}
+
+echo '----script end----'
+
 
 #echo '----start container----'
 #docker run -p 8088:8088 --name ${app_name}  -d ${group_name}/${app_name}:${app_version}
